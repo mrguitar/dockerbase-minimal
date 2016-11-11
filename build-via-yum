@@ -16,11 +16,11 @@ def run_sync(argv, **kwargs):
     subprocess.check_call(argv, **kwargs)
 
 parser = argparse.ArgumentParser(description='Create base image')
-parser.add_argument('--target', action='store', help='centos or fedora', required=True)
+parser.add_argument('--target', action='store', help='rhel, centos or fedora', required=True)
 parser.add_argument('--releasever', action='store', help='Release version', required=True)
 
 args = parser.parse_args()
-if args.target == 'centos':
+if args.target == 'centos' or 'rhel':
     cmd=['yum']
 elif args.target == 'fedora':
     cmd=['dnf', '--setopt=install_weak_deps=False']
@@ -42,7 +42,7 @@ try:
     cmd.extend(['-y', '--releasever=' + args.releasever,
                 '--installroot={}'.format(root),
                 'install',
-                'micro-yuminst', '{}-release'.format(args.target)])
+                'microdnf', '{}-release'.format(args.target)])
     run_sync(cmd)
     # We need to run this in target context in the general case
     run_sync(['install', '-m', '0755', 'locales.sh', '{}/tmp'.format(root)])

@@ -16,6 +16,7 @@ mirrorlist=http://mirrorlist.centos.org/?release=7&arch=$basearch&repo=os&infra=
 #baseurl=file:///srv/mnt/Nomad/repomirror/CentOS-Base
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+enabled=0
 
 #released updates 
 [updates]
@@ -25,7 +26,7 @@ mirrorlist=http://mirrorlist.centos.org/?release=7&arch=$basearch&repo=updates&i
 #baseurl=file:///srv/mnt/Nomad/repomirror/CentOS-updates
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-
+enabled=0
 #additional packages that may be useful
 [extras]
 name=CentOS-$releasever - Extras
@@ -34,3 +35,4 @@ mirrorlist=http://mirrorlist.centos.org/?release=7&arch=$basearch&repo=extras&in
 #baseurl=file:///srv/mnt/Nomad/repomirror/CentOS-extras
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+enabled=0
